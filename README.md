@@ -1,6 +1,6 @@
 # Deep Learning and Neural Network Diagrams
 
-A collection of TikZ diagrams for deep learning and neural network concepts.
+A collection of TikZ diagrams for deep learning and neural network concepts. This repository was created to provide a set of open-source diagrams for use in academic papers, presentations, and other documents. The diagrams are designed to be easily customisable and can be used in LaTeX documents. Note that this repository is a work in progress and more diagrams will be added over time.
 
 ## Citation
 
