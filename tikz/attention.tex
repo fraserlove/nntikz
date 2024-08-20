@@ -45,19 +45,19 @@
     % Forwards encoder RNN
     \begin{scope}[start chain=going right, nodes=cellc, arrow, local bounding box=chain]
         \path[shift={(-4em, 1em)}] 
-            node (hb1) {$\mathbf{h}_1$}
-            node[] (hb2) {$\mathbf{h}_2$} 
-            node[] (hb3) {$\mathbf{h}_3$} 
-            node[xshift=2em] (hbT) {$\mathbf{h}_{T}$};
+            node (hb1) {$\overrightarrow{\mathbf{h}}_1$}
+            node[] (hb2) {$\overrightarrow{\mathbf{h}}_2$} 
+            node[] (hb3) {$\overrightarrow{\mathbf{h}}_3$} 
+            node[xshift=2em] (hbT) {$\overrightarrow{\mathbf{h}}_{T}$};
     \end{scope}
 
     % Backwards encoder RNN
     \begin{scope}[start chain=going right, nodes=cellc, arrow, latex-, local bounding box=chain]
         \path[shift={(-4em, -2em)}] 
-            node (h1) {$\mathbf{h}_1$} 
-            node[] (h2) {$\mathbf{h}_2$} 
-            node[] (h3) {$\mathbf{h}_3$} 
-            node[xshift=2em] (hT) {$\mathbf{h}_{T}$};
+            node (h1) {$\overleftarrow{\mathbf{h}}_1$} 
+            node[] (h2) {$\overleftarrow{\mathbf{h}}_2$} 
+            node[] (h3) {$\overleftarrow{\mathbf{h}}_3$} 
+            node[xshift=2em] (hT) {$\overleftarrow{\mathbf{h}}_{T}$};
     \end{scope}
 
     % Decoder RNN
@@ -81,7 +81,7 @@
 
     % Box surrounding corresponding cells in each RNN
     \foreach \X in {1, 2, 3, T} {
-        \node[cell, dashed, fit=(hb\X) (h\X), draw, minimum width=2.5em, minimum height=6em] (box\X) {};
+        \node[cell, dashed, fit=(hb\X) (h\X)] (box\X) {};
     }
 
     % Arrows from the top of the boxes to the summation node

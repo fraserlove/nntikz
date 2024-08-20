@@ -56,7 +56,7 @@
         \path[shift={(9em, 1em)}] 
             node (h'1) {$\mathbf{h}'_1$}
             node[] (h'2) {$\mathbf{h}'_2$}
-            node[xshift=2em] (h'T) {$\mathbf{h}'_{T}$};
+            node[xshift=2em] (h'T) {$\mathbf{h}'_{T'}$};
     \end{scope}
 
     % Context vector
@@ -76,7 +76,7 @@
     \draw[arrow] (h'2.north) -- ++ (0,1.5em)
         node[above, input] (y2) {$\hat{\mathbf{y}}_2$};
     \draw[arrow] (h'T.north) -- ++ (0,1.5em)
-        node[above, input] (yT) {$\hat{\mathbf{y}}_T'$};
+        node[above, input] (yT) {$\hat{\mathbf{y}}_{T'}$};
 
     % Arrows from previous output to current output
     \draw[arrowc1, -] (y1.east) -| ++ (1em,-3.8em);
@@ -90,7 +90,6 @@
     % Continuation dots
     \path (x2) -- (xT) node[midway, scale=2] {\dots};
     \path (y2) -- (yT) node[midway, scale=2, xshift=0.3em] {\dots};
-
 \end{tikzpicture}
 
 \end{document}

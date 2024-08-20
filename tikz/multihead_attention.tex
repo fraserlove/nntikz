@@ -1,0 +1,103 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+
+\usetikzlibrary{positioning, chains, shapes.geometric, fit, shapes, arrows.meta, calc, decorations.pathreplacing, ext.paths.ortho, quotes}
+
+\begin{document}
+
+\makeatletter
+\tikzset{phantom node/.code=\tikz@addoption{\expandafter\let\csname pgf@sh@boxes@\tikz@shape\endcsname\pgfutil@empty}}
+\makeatother
+
+% Custom TikZ settings for shadowed nodes
+\tikzset{
+  shadowed node xshift/.initial=1.5ex,
+  shadowed node yshift/.initial=1ex,
+  shadowed node list/.initial={2, 1},
+  pics/shadowed node/.default=\pgfkeysvalueof{/tikz/shadowed node list},
+  shadowed node/.pic={
+    \foreach[expand list] \elem in {#1} {
+      \scoped[transparency group, shadowed node calculation={\elem}] 
+        \node[style/.expand once=\tikzpictextoptions, phantom node,
+              xshift={\elem*\pgfkeysvalueof{/tikz/shadowed node xshift}},
+              yshift={\elem*\pgfkeysvalueof{/tikz/shadowed node yshift}}] 
+              (-\elem) {\tikzpictext};
+    }
+    \node[alias=-0, style/.expand once=\tikzpictextoptions] () {\tikzpictext};
+  },
+  set shadowed node calculation parameter/.style={
+    shadowed node calculation/.style={opacity={(#1-##1+1)/(#1+1)}}
+  },
+  set shadowed node calculation parameter=2,
+  overshoot line to/.style={
+    to path={($(\tikztostart)!-(#1)!(\tikztotarget)$)--($(\tikztotarget)!-(#1)!(\tikztostart)$)\tikztonodes}
+  },
+  edges have transparency group/.style={
+    execute at begin to={\scope[transparency group,#1]},
+    execute at end to=\endscope
+  }
+}
+
+\begin{tikzpicture}[
+    >=LaTeX, % Use default LaTeX arrows
+    thick,
+    x=2cm,
+    node distance=1.75em,
+    % Styles 
+    cell/.style={
+        rectangle,
+        fill=white!10,
+        rounded corners=2mm,
+        minimum height=2em,
+        minimum width=2.5em,
+        draw,
+        thick
+    },
+    arrow/.style={
+        -latex,
+        very thick
+    }
+]
+
+    \node foreach[count=\i] \t in {$\mathbf{Q}$, $\mathbf{K}$, $\mathbf{V}$} (VKQ-\i) at (\i, 0) {\t}
+    pic foreach \i in {1, 2, 3}
+        ["Linear" cell=red, above=of VKQ-\i] (Linear-\i) {shadowed node}
+    pic["Scaled Dot-Product Attention" cell=red, above = of Linear-2]
+        (Attention) {shadowed node}
+    node[above = of Attention, cell=red] (Concat) {Concat}
+    node[above = of Concat, cell=red] (Linear) {Linear}
+    node[above = of Linear] (MHAtt) {Multi-Head Attention}
+    [arrow, ortho/install shortcuts]
+    foreach \i in {1, 2, 3}{
+        (VKQ-\i) edge coordinate [pos=.2] (@) (Linear-\i)
+        (Linear-\i) edge[|*] (Attention)
+        foreach \j in {2, 1}{
+        [
+            edges have transparency group={shadowed node calculation=\j},
+            behind path % this edges should be behind the other nodes/pics
+        ]
+        (@) edge[out=90, in=-90] (Linear-\i-\j)
+        [in front of path] % split the following path midway (→ @@)
+        (Linear-\i-\j) edge[path only, |*] coordinate (@@) (Attention-\j)
+                        edge[-] (@@)                % draw the first half on top
+        [behind path] (@@) edge[|*] (Attention-\j) % and the second behind
+        }
+    }
+    foreach \i in {0, 1, 2}{
+        [edges have transparency group={shadowed node calculation=\i}]
+        (Attention-\i) edge[|*] (Concat)
+    }
+    (Concat) edge (Linear)
+    (Linear) edge (MHAtt);
+
+    % Braced label for H
+    \draw[
+        arrows={[arc=135]}, arrows={Hooks[left]-Hooks[right]},
+        s/.style={shift={(3mm,-3.5mm)}}
+    ]
+    ([s]Attention-2.east) to[overshoot line to=1mm] coordinate(@) ([s]Attention.east);
+    \path node[right=3mm] at (@) {$H$};
+\end{tikzpicture}
+
+\end{document}

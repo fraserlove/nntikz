@@ -1,0 +1,46 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+
+\usetikzlibrary{positioning, chains, shapes.geometric, fit, shapes, arrows.meta, calc}
+
+\begin{document}
+
+\begin{tikzpicture}[
+    >=LaTeX, % Use default LaTeX arrows
+    % Styles 
+    node/.style={ % Input or output node
+        circle,
+        minimum width=2.25em,
+        draw,
+        fill=gray!10,
+        thick
+    },
+    arrow/.style={
+        -latex,
+        thick
+    },
+    backprop/.style={ % Backpropagation arrows
+        arrow,
+        dashed,
+        gray
+    }
+]
+    % Computational graph nodes
+    \node[node] (t) {$t$};
+    \node[node] (t1) [left=of t, xshift=-1cm, yshift=0.65cm] {$t_1$};
+    \node[node] (t2) [left=of t, xshift=-1cm, yshift=-0.65cm] {$t_2$};
+    \node (lt) [above= of t, yshift=-0.75cm] {$t_1 > t_2$};
+
+    % Computational graph edges
+    \draw[arrow] (t1.east) -- ([yshift=2pt]t.west);
+    \draw[arrow] (t2.east) -- ([yshift=-2pt]t.west);
+    \draw[arrow] (t.east) +(0cm,0.1cm) -- +(2.5cm,0.1cm) node[midway, above] {$t = \max{(t_1, t_2)}$};
+
+    % Backpropagation arrows with partial derivatives
+    \draw[backprop, bend right] (t) to node[midway, above] {$\bar{t}_1 = \bar{t}$} (t1);
+    \draw[backprop, bend left] (t) to node[midway, below] {$\bar{t}_2 = 0$} (t2);
+    \draw[backprop, latex-] (t.east) +(0cm,-0.1cm) -- +(2.5cm,-0.1cm) node[midway, below] {$\bar{t}$};
+\end{tikzpicture}
+
+\end{document}

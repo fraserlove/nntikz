@@ -4,17 +4,26 @@ A collection of TikZ diagrams for deep learning and neural network concepts. Thi
 
 ## Examples
 
+#### Transformer - [Vaswani et al. (2017)](https://arxiv.org/abs/1706.03762)
+![](assets/attention.png)
+
+#### Multi-Head Attention - [Vaswani et al. (2017)](https://arxiv.org/abs/1706.03762)
+![](assets/multihead_attention.png)
+
+#### Neural Network
+![](assets/neural_network.png)
+
 #### Attention Mechanism - [Bahdanau et al. (2014)](https://arxiv.org/abs/1409.0473)
 ![](assets/attention.png)
 
 #### Gated Recurrent Unit (GRU) - [Cho et al. (2014)](https://arxiv.org/abs/1406.1078)
 ![](assets/gru.png)
 
-#### Sequence-to-Sequence Model - [Sutskever et al. (2014)](https://arxiv.org/abs/1409.3215) and [Cho et al. (2014)](https://arxiv.org/abs/1406.1078)
-![](assets/rnn_encoder_decoder.png)
+#### RNN Encoder-Decoder - [Sutskever et al. (2014)](https://arxiv.org/abs/1409.3215)
+![](assets/rnn_encoder_decoder_sutskever.png)
 
 #### Backpropagation Through Time (BPTT) - [Werbos (1990)](https://www.researchgate.net/publication/220365479_Backpropagation_through_time)
-![](assets/rnn_btt.png)
+![](assets/rnn_backprop.png)
 
 ## Citation
 

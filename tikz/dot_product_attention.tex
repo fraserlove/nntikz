@@ -1,0 +1,50 @@
+\documentclass{standalone}
+
+\usepackage{tikz}
+
+\usetikzlibrary{positioning, chains, shapes.geometric, fit, shapes, arrows.meta, calc}
+
+\begin{document}
+
+\begin{tikzpicture}[
+    >=LaTeX,
+    % Styles
+    layer/.style={
+        rectangle,
+        fill=white!10,
+        rounded corners=2mm,
+        minimum height=2em,
+        minimum width=3em,
+        draw,
+        thick
+    },
+    arrow/.style={
+        -latex,
+        very thick
+    }
+]
+
+    % Layers
+    \node[] (Q) {$\mathbf{Q}$};
+    \node[, right=1em of Q] (K) {$\mathbf{K}$};
+    \node[, right=1em of K] (V) {$\mathbf{V}$};
+
+    \node[layer, above=2em of $(Q)!0.5!(K)$] (matmul) {MatMul};
+    \node[layer, above=1em of matmul] (scale) {Scale};
+    \node[layer, above=1em of scale] (mask) {Mask (opt.)};
+    \node[layer, above=1em of mask] (softmax) {Softmax};
+    \node[layer, above=14.5em of $(Q)!0.8!(V)$] (matmul2) {MatMul};
+    \node[above=1.4em of matmul2] (result) {Scaled Dot-Product Attention};
+
+    % Paths
+    \draw[arrow] (Q) -- (matmul);
+    \draw[arrow] (K) -- (matmul);
+    \draw[arrow] (matmul) -- (scale);
+    \draw[arrow] (scale) -- (mask);
+    \draw[arrow] (mask) -- (softmax);
+    \draw[arrow] (softmax) -- (matmul2);
+    \draw[arrow] (matmul2) -- (result);
+    \path[draw, arrow] (V) -- ++(0, 14.5em);
+\end{tikzpicture}
+
+\end{document}

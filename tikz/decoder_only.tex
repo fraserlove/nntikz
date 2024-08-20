@@ -56,45 +56,26 @@
     }
 ]
 
-    \node[input] (iemb) at (1.25,-0.45) {$\mathbf{x}$};
     \node[input] (oemb) at (5.25,-0.45) {$\mathbf{y}$};
 
     % Sums
-    \node[circle, draw, minimum size=0.25em, inner sep=0pt, above=1em of iemb] (sum1) {$\mathbf{+}$};
     \node[circle, draw, minimum size=0.25em, inner sep=0pt, above=1em of oemb] (sum2) {$\mathbf{+}$};
     % Positional Encoding
-    \node [circle, draw, sin wave, minimum size=2em, left=0.8em of sum1] (pe1) {};
     \node [circle, draw, sin wave, minimum size=2em, right=0.8em of sum2] (pe2) {};
-
-    % Encoder, 1st layer
-    \node[layer] (add1) at (1.25,3.43) {Add \& Norm};
-    \node[layer] (attn1) at (1.25,2.58) {Multi-Head \vspace{-0.05cm} \linebreak Attention};
-    \draw[] (attn1) -- (add1);
-    % Encoder 2nd sub-layer
-    \node[layer] (add4) at (1.25,5.98) {Add \& Norm};
-    \node[layer] (ff1) at (1.25,5.13) {Feed \vspace{-0.05cm} \linebreak Forward};
-    \draw[] (ff1) -- (add4);
 
     % Decoder 1st sub-layer
     \node[layer] (add3) at (5.25,3.83) {Add \& Norm};
     \node[layer] (attn3) at (5.25,2.78) {Masked \vspace{-0.05cm} \linebreak Multi-Head \vspace{-0.05cm} \linebreak Attention};
     \draw[] (attn3) -- (add3);
-    % Decoder, 2nd sub-layer
-    \node[layer] (add2) at (5.25,6.38) {Add \& Norm};
-    \node[layer] (attn2) at (5.25,5.53) {Multi-Head \vspace{-0.05cm} \linebreak Attention};
-    \draw[] (attn2) -- (add2);
     % Decoder 3rd sub-layer
-    \node[layer] (add5) at (5.25,8.93) {Add \& Norm};
-    \node[layer] (ff2) at (5.25,8.08) {Feed \vspace{-0.05cm} \linebreak Forward};
+    \node[layer] (add5) at (5.25,6.38) {Add \& Norm};
+    \node[layer] (ff2) at (5.25,5.53) {Feed \vspace{-0.05cm} \linebreak Forward};
     \draw[] (ff2) -- (add5);
 
     \coordinate (d1) at ($(attn3.south east) + (0.75,-0.7)$);
     \coordinate (d2) at ($(add5.north west) + (-0.15,0.05)$);
-    \coordinate (e1) at ($(attn1.south east) + (0.15,-0.7)$);
-    \coordinate (e2) at ($(add4.north west) + (-0.75,0.05)$);
     \begin{scope}[on background layer]
         \node[block, fit=(d1) (d2)] (decoder) {};
-        \node[block, fit=(e1) (e2)] (encoder) {};
     \end{scope}
 
     % Classifier
@@ -102,43 +83,25 @@
     \node[layer, above=1em of linear] (softmax) {Softmax};
     \node[input, above=1em of softmax] (probs) {$\hat{\mathbf{y}}$};
 
-    \draw[arrow] (add1) -- (ff1);
-    \draw[arrow] (add2) -- (ff2);
+    \draw[arrow] (add3) -- (ff2);
     \draw[arrow] (add5) -- (linear);
     \draw[arrow] (linear) -- (softmax);
-    \draw[arrow] (iemb) -- (sum1);
-    \draw[arrow] (sum1) -- (attn1);
     \draw[arrow] (oemb) -- (sum2);
     \draw[arrow] (sum2) -- (attn3);
-    \draw[] (sum1) -- (pe1);
     \draw[] (sum2) -- (pe2);
 
-    \draw[arrow] (ff1.south)++(0, -0.6) -| ($(add4.west) + (-0.6,-0.5)$) |- (add4.west);
-    \draw[arrow] (attn1.south)++(0, -0.6) -| ($(add1.west) + (-0.6,-0.5)$) |- (add1.west);
-
     \draw[arrow] (attn3.south)++(0, -0.6) -| ($(add3.east) + (0.6,-0.5)$) |- (add3.east);
-    \draw[arrow] (attn2.south)++(0, -0.6) -| ($(add2.east) + (0.6,-0.5)$) |- (add2.east);
     \draw[arrow] (ff2.south)++(0, -0.6) -| ($(add5.east) + (0.6,-0.5)$) |- (add5.east);
-
-    \draw[arrow] (attn1.south)++(0, -0.4) -| ($(attn1.south) + (-1,0)$);
-    \draw[arrow] (attn1.south)++(0, -0.4) -| ($(attn1.south) + (1,0)$);
 
     \draw[arrow] (attn3.south)++(0, -0.4) -| ($(attn3.south) + (-1,0)$);
     \draw[arrow] (attn3.south)++(0, -0.4) -| ($(attn3.south) + (1,0)$);
 
-    \draw[arrow] (add4.north) |- ($(add4.north) + (1,1)$) -| ($(add4.north) + (2,-1)$) |- ($(attn2.south) + (-1,-0.4)$) -| ($(attn2.south) + (-1,0)$);
-    \draw[arrow] (add4.north) |- ($(add4.north) + (1,1)$) -| ($(add4.north) + (2,-1)$) |- ($(attn2.south) + (0,-0.4)$) -| ($(attn2.south)$);
-    \draw[arrow] (add3.north) |- ($(attn2.south) + (0.5,-0.4)$) -| ($(attn2.south) + (1,0)$);
-
     \node[] at ($(oemb.east) + (1.4,0)$) {(shifted right)};
-    \node[] at ($(pe1.west) + (-0.3,0)$) {$\mathbf{P}$};
     \node[] at ($(pe2.east) + (0.3,0)$) {$\mathbf{P}$};
 
-    \draw[arrow] (iemb) -- (sum1);
     \draw[arrow] (oemb) -- (sum2);
     \draw[arrow] (softmax) -- (probs);
 
-    \node[anchor=east] at ($(encoder.west) + (-0.2,0)$) {$N\times$};
     \node[anchor=west] at ($(decoder.east) + (0.2,0)$) {$N\times$};
 \end{tikzpicture}
 
