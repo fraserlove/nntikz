@@ -15,23 +15,23 @@ If you use this repository in your research or project, please cite it as follow
 
 See some examples below:
 
-#### Transformer - [Vaswani et al. (2017)](https://arxiv.org/abs/1706.03762)
+#### Transformer
 <img src="assets/transformer.png" alt="Transformer" width="400"/>
 
-#### Multi-Head Attention - [Vaswani et al. (2017)](https://arxiv.org/abs/1706.03762)
+#### Multi-Head Attention
 <img src="assets/multihead_attention.png" alt="Multi-Head Attention" width="400"/>
 
 #### Neural Network
 <img src="assets/neural_network.png" alt="Neural Network" width="400"/>
 
-#### Attention Mechanism - [Bahdanau et al. (2014)](https://arxiv.org/abs/1409.0473)
+#### Attention Mechanism
 <img src="assets/attention.png" alt="Attention Mechanism" width="400"/>
 
-#### Gated Recurrent Unit (GRU) - [Cho et al. (2014)](https://arxiv.org/abs/1406.1078)
+#### Gated Recurrent Unit (GRU)
 <img src="assets/gru.png" alt="GRU" width="400"/>
 
-#### RNN Encoder-Decoder - [Sutskever et al. (2014)](https://arxiv.org/abs/1409.3215)
+#### RNN Encoder-Decoder
 <img src="assets/rnn_encoder_decoder_sutskever.png" alt="RNN Encoder-Decoder" width="400"/>
 
-#### Backpropagation Through Time (BPTT) - [Werbos (1990)](https://www.researchgate.net/publication/220365479_Backpropagation_through_time)
+#### Backpropagation Through Time (BPTT)
 <img src="assets/rnn_backprop.png" alt="BPTT" width="400"/>
