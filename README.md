@@ -34,13 +34,14 @@ A collection of TikZ diagrams for neural network and deep learning concepts. Thi
 
 ## Citation
 
-If you use this repository in your research or project, please cite it as follows:
-```
-@misc{love2024nntikz,
+If you use nntikz in your research or project, cite simply as:
+
+```bibtex
+@misc{nntikz,
     author = {Fraser Love},
-    title = {NNTikZ - TikZ Diagrams for Deep Learning and Neural Networks},
-    year = 2024,
-    url = {https://github.com/fraserlove/nntikz},
-    note = {GitHub repository}
+    title = {NNTikZ: TikZ Diagrams for Deep Learning and Neural Networks},
+    year = {2024},
+    publisher = {GitHub}
+    url = {https://github.com/fraserlove/nntikz}
 }
 ```
