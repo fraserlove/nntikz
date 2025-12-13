@@ -1,36 +1,16 @@
 # NNTikZ
 
-A collection of TikZ diagrams for neural network and deep learning concepts. NNTikZ is designed to provide clean and consistent figures suitable for academic papers, lecture notes, theses, and presentations. All diagrams are open source, easy to customize, and written entirely in TikZ/LaTeX. Feel free to open an issue to suggest a diagram or submit a pull request with any contributions.
+A collection of TikZ diagrams for neural network and deep learning concepts. NNTikZ is designed to provide clean and consistent figures suitable for academic papers, lecture notes, theses, and presentations. All diagrams are open source, easy to customize, and written entirely in TikZ/LaTeX. Feel free to open an issue to suggest a diagram or submit a pull request with any contributions. Examples of some diagrams in this library are shown below.
 
-## Examples
-
-**Transformer**
-
-<img src="assets/transformer.png" alt="Transformer" width="400"/>
-
-**Multi-Head Attention**
-
-<img src="assets/multihead_attention.png" alt="Multi-Head Attention" width="400"/>
-
-**Neural Network**
-
-<img src="assets/neural_network.png" alt="Neural Network" width="400"/>
-
-**Attention Mechanism**
-
-<img src="assets/attention.png" alt="Attention Mechanism" width="400"/>
-
-**Gated Recurrent Unit (GRU)**
-
-<img src="assets/gru.png" alt="GRU" width="400"/>
-
-**RNN Encoder-Decoder**
-
-<img src="assets/rnn_encoder_decoder_sutskever.png" alt="RNN Encoder-Decoder" width="400"/>
-
-**Backpropagation Through Time (BPTT)**
-
-<img src="assets/rnn_backprop.png" alt="BPTT" width="400"/>
+| Diagram | Preview |
+|--------|---------|
+| **Transformer** | <img src="assets/transformer.png" alt="Transformer" width="400"/> |
+| **Multi-Head Attention** | <img src="assets/multihead_attention.png" alt="Multi-Head Attention" width="400"/> |
+| **Neural Network** | <img src="assets/neural_network.png" alt="Neural Network" width="400"/> |
+| **Attention Mechanism** | <img src="assets/attention.png" alt="Attention Mechanism" width="400"/> |
+| **Gated Recurrent Unit (GRU)** | <img src="assets/gru.png" alt="Gated Recurrent Unit" width="400"/> |
+| **RNN Encoder–Decoder (Sutskever et al.)** | <img src="assets/rnn_encoder_decoder_sutskever.png" alt="RNN Encoder-Decoder" width="400"/> |
+| **Backpropagation Through Time (BPTT)** | <img src="assets/rnn_backprop.png" alt="Backpropagation Through Time" width="400"/> |
 
 ## Citation
 
