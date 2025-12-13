@@ -1,6 +1,6 @@
 # NNTikZ
 
-A collection of TikZ diagrams for neural network and deep learning concepts. This repository was created to provide a set of open-source diagrams for use in academic papers and presentations.
+A collection of TikZ diagrams for neural network and deep learning concepts. NNTikZ is designed to provide clean and consistent figures suitable for academic papers, lecture notes, theses, and presentations. All diagrams are open source, easy to customize, and written entirely in TikZ/LaTeX. Feel free to open an issue to suggest a diagram or submit a pull request with any contributions.
 
 ## Examples
 
@@ -34,7 +34,7 @@ A collection of TikZ diagrams for neural network and deep learning concepts. Thi
 
 ## Citation
 
-If you use nntikz in your research or project, cite simply as:
+If you use NNTikZ in your research or project, cite simply as:
 
 ```bibtex
 @misc{nntikz,
