@@ -6,13 +6,13 @@ Some example diagrams are shown below:
 
 | Diagram | Preview |
 |--------|---------|
-| *Transformer* | <img src="assets/transformer.png" alt="Transformer" width="250"/> |
-| *Multi-Head Attention* | <img src="assets/multihead_attention.png" alt="Multi-Head Attention" width="250"/> |
-| *Neural Network* | <img src="assets/neural_network.png" alt="Neural Network" width="250"/> |
-| *Attention Mechanism* | <img src="assets/attention.png" alt="Attention Mechanism" width="250"/> |
-| *Gated Recurrent Unit (GRU)* | <img src="assets/gru.png" alt="Gated Recurrent Unit" width="250"/> |
-| *RNN Encoder–Decoder (Sutskever et al.)* | <img src="assets/rnn_encoder_decoder_sutskever.png" alt="RNN Encoder-Decoder" width="250"/> |
-| *Backpropagation Through Time (BPTT)* | <img src="assets/rnn_backprop.png" alt="Backpropagation Through Time" width="250"/> |
+| *Transformer* | <img src="assets/transformer.png" alt="Transformer" width="300"/> |
+| *Multi-Head Attention* | <img src="assets/multihead_attention.png" alt="Multi-Head Attention" width="300"/> |
+| *Neural Network* | <img src="assets/neural_network.png" alt="Neural Network" width="300"/> |
+| *Attention Mechanism* | <img src="assets/attention.png" alt="Attention Mechanism" width="300"/> |
+| *Gated Recurrent Unit (GRU)* | <img src="assets/gru.png" alt="Gated Recurrent Unit" width="300"/> |
+| *RNN Encoder–Decoder (Sutskever et al.)* | <img src="assets/rnn_encoder_decoder_sutskever.png" alt="RNN Encoder-Decoder" width="300"/> |
+| *Backpropagation Through Time (BPTT)* | <img src="assets/rnn_backprop.png" alt="Backpropagation Through Time" width="300"/> |
 
 ## Citation
 
