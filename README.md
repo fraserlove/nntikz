@@ -23,7 +23,7 @@ If you use NNTikZ in your research or project, cite simply as:
     author = {Fraser Love},
     title = {NNTikZ: TikZ Diagrams for Deep Learning and Neural Networks},
     year = {2024},
-    publisher = {GitHub}
+    publisher = {GitHub},
     url = {https://github.com/fraserlove/nntikz}
 }
 ```
